@@ -1,0 +1,1127 @@
+- generic [active] [ref=f1e1]:
+  - generic [ref=f1e2]:
+    - generic [ref=f1e3]:
+      - link "Skip to content" [ref=f1e4] [cursor=pointer]:
+        - /url: "#start-of-content"
+      - banner [ref=f1e8]:
+        - heading "Navigation Menu" [level=2] [ref=f1e9]
+        - generic [ref=f1e10]:
+          - link "Homepage" [ref=f1e12] [cursor=pointer]:
+            - /url: /
+          - generic [ref=f1e15]:
+            - navigation "Global" [ref=f1e16]:
+              - list [ref=f1e17]:
+                - listitem [ref=f1e18]:
+                  - button "Platform" [ref=f1e20] [cursor=pointer]
+                - listitem [ref=f1e23]:
+                  - button "Solutions" [ref=f1e25] [cursor=pointer]
+                - listitem [ref=f1e28]:
+                  - button "Resources" [ref=f1e30] [cursor=pointer]
+                - listitem [ref=f1e33]:
+                  - button "Open Source" [ref=f1e35] [cursor=pointer]
+                - listitem [ref=f1e38]:
+                  - button "Enterprise" [ref=f1e40] [cursor=pointer]
+                - listitem [ref=f1e43]:
+                  - link "Pricing" [ref=f1e44] [cursor=pointer]:
+                    - /url: https://github.com/pricing
+            - generic [ref=f1e46]:
+              - button "Search or jump to, type / to search" [ref=f1e48] [cursor=pointer]:
+                - generic [ref=f1e51]:
+                  - text: Type
+                  - generic [ref=f1e52]: /
+                  - text: to search
+              - link "Sign in" [ref=f1e54] [cursor=pointer]:
+                - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fchu0119%2Ffscan-toolkit
+              - link "Sign up" [ref=f1e55] [cursor=pointer]:
+                - /url: /signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E&source=header-repo&source_repo=chu0119%2Ffscan-toolkit
+              - button "Appearance settings" [ref=f1e56] [cursor=pointer]
+    - main [ref=f1e62]:
+      - generic [ref=f1e63]:
+        - generic [ref=f1e64]:
+          - generic [ref=f1e66]:
+            - link "chu0119" [ref=f1e70] [cursor=pointer]:
+              - /url: /chu0119
+            - generic [ref=f1e71]: /
+            - strong [ref=f1e72]:
+              - link "fscan-toolkit" [ref=f1e73] [cursor=pointer]:
+                - /url: /chu0119/fscan-toolkit
+            - generic [ref=f1e74]: Public
+          - generic [ref=f1e75]:
+            - list:
+              - listitem [ref=f1e76]:
+                - link "You must be signed in to change notification settings" [ref=f1e77] [cursor=pointer]:
+                  - /url: /login?return_to=%2Fchu0119%2Ffscan-toolkit
+                  - text: Notifications
+              - listitem [ref=f1e80]:
+                - link "Fork 0" [ref=f1e81] [cursor=pointer]:
+                  - /url: /login?return_to=%2Fchu0119%2Ffscan-toolkit
+                  - text: Fork
+                  - generic "0" [ref=f1e84]
+              - listitem [ref=f1e85]:
+                - link "You must be signed in to star a repository" [ref=f1e87] [cursor=pointer]:
+                  - /url: /login?return_to=%2Fchu0119%2Ffscan-toolkit
+                  - text: Star
+                  - generic "0 users starred this repository" [ref=f1e90]: "0"
+        - navigation "Repository" [ref=f1e91]:
+          - list [ref=f1e92]:
+            - listitem [ref=f1e93]:
+              - link "Code" [ref=f1e94] [cursor=pointer]:
+                - /url: /chu0119/fscan-toolkit
+            - listitem [ref=f1e98]:
+              - link "Issues" [ref=f1e99] [cursor=pointer]:
+                - /url: /chu0119/fscan-toolkit/issues
+            - listitem [ref=f1e104]:
+              - link "Pull requests" [ref=f1e105] [cursor=pointer]:
+                - /url: /chu0119/fscan-toolkit/pulls
+            - listitem [ref=f1e109]:
+              - link "Actions" [ref=f1e110] [cursor=pointer]:
+                - /url: /chu0119/fscan-toolkit/actions
+            - listitem [ref=f1e114]:
+              - link "Projects" [ref=f1e115] [cursor=pointer]:
+                - /url: /chu0119/fscan-toolkit/projects
+            - listitem [ref=f1e119]:
+              - link "Security and quality" [ref=f1e120] [cursor=pointer]:
+                - /url: /chu0119/fscan-toolkit/security
+            - listitem [ref=f1e124]:
+              - link "Insights" [ref=f1e125] [cursor=pointer]:
+                - /url: /chu0119/fscan-toolkit/pulse
+      - generic [ref=f1e142]:
+        - generic [ref=f1e145]:
+          - generic [ref=f1e146]:
+            - generic [ref=f1e147]:
+              - button "main branch" [ref=f1e149] [cursor=pointer]:
+                - generic [ref=f1e150]: main
+              - generic [ref=f1e154]:
+                - link [ref=f1e155] [cursor=pointer]:
+                  - /url: /chu0119/fscan-toolkit/branches
+                  - generic [ref=f1e158]:
+                    - strong [ref=f1e159]: "1"
+                    - text: Branch
+                - link [ref=f1e160] [cursor=pointer]:
+                  - /url: /chu0119/fscan-toolkit/tags
+                  - generic [ref=f1e163]:
+                    - strong [ref=f1e164]: "0"
+                    - text: Tags
+            - generic [ref=f1e165]:
+              - combobox "Go to file" [ref=f1e173]
+              - button "Code" [ref=f1e174] [cursor=pointer]
+          - generic [ref=f1e177]:
+            - generic [ref=f1e178]:
+              - heading "Folders and files" [level=2] [ref=f1e179]
+              - table "Folders and files" [ref=f1e180]:
+                - rowgroup:
+                  - row "Name Last commit message Last commit date":
+                    - columnheader "Name"
+                    - columnheader "Last commit message"
+                    - columnheader "Last commit date"
+                - rowgroup [ref=f1e181]:
+                  - row [ref=f1e182]:
+                    - cell "Latest commit chu0119 commits by chu0119 @ Open commit details Commit 53ddbaa · Aug 10, 2026now History 2 Commits" [ref=f1e183]:
+                      - generic [ref=f1e184]:
+                        - heading "Latest commit" [level=2] [ref=f1e185]
+                        - generic [ref=f1e186]:
+                          - generic [ref=f1e188]:
+                            - link [ref=f1e189] [cursor=pointer]:
+                              - /url: /chu0119
+                              - img "chu0119" [ref=f1e190]
+                            - link "commits by chu0119" [ref=f1e191] [cursor=pointer]:
+                              - /url: /chu0119/fscan-toolkit/commits?author=chu0119
+                              - text: chu0119
+                          - generic [ref=f1e192]:
+                            - link "@" [ref=f1e195] [cursor=pointer]:
+                              - /url: /chu0119/fscan-toolkit/commit/53ddbaa684666b3f61cc2673f5e84efcc0c98094
+                            - button "Open commit details" [ref=f1e196] [cursor=pointer]
+                        - generic [ref=f1e199]:
+                          - generic [ref=f1e201]:
+                            - link "Commit 53ddbaa" [ref=f1e202] [cursor=pointer]:
+                              - /url: /chu0119/fscan-toolkit/commit/53ddbaa684666b3f61cc2673f5e84efcc0c98094
+                              - text: 53ddbaa
+                            - text: ·
+                            - generic "Aug 10, 2026, 07:40 GMT+8" [ref=f1e203]: Aug 10, 2026now
+                          - generic [ref=f1e204]:
+                            - heading "History" [level=2] [ref=f1e205]
+                            - link "2 Commits" [ref=f1e206] [cursor=pointer]:
+                              - /url: /chu0119/fscan-toolkit/commits/main/
+                  - row [ref=f1e209]:
+                    - cell [ref=f1e210]:
+                      - link "docs/superpowers/specs, (Directory)" [ref=f1e217] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/tree/main/docs/superpowers/specs
+                        - text: docs/superpowers/specs
+                    - cell [ref=f1e218]:
+                      - link "@" [ref=f1e221] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/commit/398a889898025db52feeb4104d440a31d09e64a1
+                    - cell "Aug 10, 20265 minutes ago" [ref=f1e222]
+                  - row [ref=f1e224]:
+                    - cell [ref=f1e225]:
+                      - link "screenshots, (Directory)" [ref=f1e232] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/tree/main/screenshots
+                        - text: screenshots
+                    - cell [ref=f1e233]:
+                      - link "@" [ref=f1e236] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/commit/53ddbaa684666b3f61cc2673f5e84efcc0c98094
+                    - cell "Aug 10, 2026now" [ref=f1e237]
+                  - row [ref=f1e239]:
+                    - cell [ref=f1e240]:
+                      - link ".gitignore, (File)" [ref=f1e247] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/blob/main/.gitignore
+                        - text: .gitignore
+                    - cell [ref=f1e248]:
+                      - link "@" [ref=f1e251] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/commit/53ddbaa684666b3f61cc2673f5e84efcc0c98094
+                    - cell "Aug 10, 2026now" [ref=f1e252]
+                  - row [ref=f1e254]:
+                    - cell [ref=f1e255]:
+                      - link "LICENSE, (File)" [ref=f1e262] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/blob/main/LICENSE
+                        - text: LICENSE
+                    - cell [ref=f1e263]:
+                      - link "@" [ref=f1e266] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/commit/398a889898025db52feeb4104d440a31d09e64a1
+                    - cell "Aug 10, 20265 minutes ago" [ref=f1e267]
+                  - row [ref=f1e269]:
+                    - cell [ref=f1e270]:
+                      - link "README.md, (File)" [ref=f1e277] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/blob/main/README.md
+                        - text: README.md
+                    - cell [ref=f1e278]:
+                      - link "@" [ref=f1e281] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/commit/53ddbaa684666b3f61cc2673f5e84efcc0c98094
+                    - cell "Aug 10, 2026now" [ref=f1e282]
+                  - row [ref=f1e284]:
+                    - cell [ref=f1e285]:
+                      - link "fscan-command-builder.html, (File)" [ref=f1e292] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/blob/main/fscan-command-builder.html
+                        - text: fscan-command-builder.html
+                    - cell [ref=f1e293]:
+                      - link "@" [ref=f1e296] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/commit/53ddbaa684666b3f61cc2673f5e84efcc0c98094
+                    - cell "Aug 10, 2026now" [ref=f1e297]
+                  - row [ref=f1e299]:
+                    - cell [ref=f1e300]:
+                      - link "fscan-manual.docx, (File)" [ref=f1e307] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/blob/main/fscan-manual.docx
+                        - text: fscan-manual.docx
+                    - cell [ref=f1e308]:
+                      - link "@" [ref=f1e311] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/commit/398a889898025db52feeb4104d440a31d09e64a1
+                    - cell "Aug 10, 20265 minutes ago" [ref=f1e312]
+                  - row [ref=f1e314]:
+                    - cell [ref=f1e315]:
+                      - link "fscan-manual.md, (File)" [ref=f1e322] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/blob/main/fscan-manual.md
+                        - text: fscan-manual.md
+                    - cell [ref=f1e323]:
+                      - link "@" [ref=f1e326] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/commit/398a889898025db52feeb4104d440a31d09e64a1
+                    - cell "Aug 10, 20265 minutes ago" [ref=f1e327]
+                  - row [ref=f1e329]:
+                    - cell [ref=f1e330]:
+                      - link "fscan-report-generator.html, (File)" [ref=f1e337] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/blob/main/fscan-report-generator.html
+                        - text: fscan-report-generator.html
+                    - cell [ref=f1e338]:
+                      - link "@" [ref=f1e341] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/commit/398a889898025db52feeb4104d440a31d09e64a1
+                    - cell "Aug 10, 20265 minutes ago" [ref=f1e342]
+                  - row [ref=f1e344]:
+                    - cell [ref=f1e345]:
+                      - link "fscan-web-manual.docx, (File)" [ref=f1e352] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/blob/main/fscan-web-manual.docx
+                        - text: fscan-web-manual.docx
+                    - cell [ref=f1e353]:
+                      - link "@" [ref=f1e356] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/commit/398a889898025db52feeb4104d440a31d09e64a1
+                    - cell "Aug 10, 20265 minutes ago" [ref=f1e357]
+                  - row [ref=f1e359]:
+                    - cell [ref=f1e360]:
+                      - link "fscan-web-manual.md, (File)" [ref=f1e367] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/blob/main/fscan-web-manual.md
+                        - text: fscan-web-manual.md
+                    - cell [ref=f1e368]:
+                      - link "@" [ref=f1e371] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/commit/398a889898025db52feeb4104d440a31d09e64a1
+                    - cell "Aug 10, 20265 minutes ago" [ref=f1e372]
+                  - row [ref=f1e374]:
+                    - cell [ref=f1e375]:
+                      - link "pscan-manual.docx, (File)" [ref=f1e382] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/blob/main/pscan-manual.docx
+                        - text: pscan-manual.docx
+                    - cell [ref=f1e383]:
+                      - link "@" [ref=f1e386] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/commit/398a889898025db52feeb4104d440a31d09e64a1
+                    - cell "Aug 10, 20265 minutes ago" [ref=f1e387]
+                  - row [ref=f1e389]:
+                    - cell [ref=f1e390]:
+                      - link "pscan-manual.md, (File)" [ref=f1e397] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/blob/main/pscan-manual.md
+                        - text: pscan-manual.md
+                    - cell [ref=f1e398]:
+                      - link "@" [ref=f1e401] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/commit/398a889898025db52feeb4104d440a31d09e64a1
+                    - cell "Aug 10, 20265 minutes ago" [ref=f1e402]
+                  - row [ref=f1e404]:
+                    - cell [ref=f1e405]:
+                      - link "take_screenshots.py, (File)" [ref=f1e412] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/blob/main/take_screenshots.py
+                        - text: take_screenshots.py
+                    - cell [ref=f1e413]:
+                      - link "@" [ref=f1e416] [cursor=pointer]:
+                        - /url: /chu0119/fscan-toolkit/commit/53ddbaa684666b3f61cc2673f5e84efcc0c98094
+                    - cell "Aug 10, 2026now" [ref=f1e417]
+            - generic [ref=f1e420]:
+              - generic [ref=f1e421]:
+                - heading "Repository files navigation" [level=2] [ref=f1e422]
+                - navigation "Repository files" [ref=f1e423]:
+                  - list [ref=f1e424]:
+                    - listitem [ref=f1e425]:
+                      - link "README" [ref=f1e426] [cursor=pointer]:
+                        - /url: "#"
+                    - listitem [ref=f1e428]:
+                      - link "MIT license" [ref=f1e429] [cursor=pointer]:
+                        - /url: "#"
+                - button "Outline" [ref=f1e431] [cursor=pointer]
+              - article [ref=f1e435]:
+                - generic [ref=f1e436]:
+                  - link [ref=f1e437] [cursor=pointer]:
+                    - /url: /chu0119/fscan-toolkit/blob/main/screenshots/builder-01-default.png
+                    - img "Fscan Toolkit Banner" [ref=f1e438]
+                  - generic [ref=f1e439]:
+                    - heading "🔧 Fscan Toolkit" [level=1] [ref=f1e440]
+                    - 'link "Permalink: 🔧 Fscan Toolkit" [ref=f1e441] [cursor=pointer]':
+                      - /url: "#-fscan-toolkit"
+                  - paragraph [ref=f1e444]:
+                    - strong [ref=f1e445]: fscan 图形化管理工具套件 — 让 fscan 更易用、更专业
+                  - paragraph [ref=f1e446]:
+                    - link [ref=f1e447] [cursor=pointer]:
+                      - /url: /chu0119/fscan-toolkit/blob/main/LICENSE
+                      - 'img "License: MIT" [ref=f1e448]'
+                    - link [ref=f1e449] [cursor=pointer]:
+                      - /url: https://chu0119.github.io/fscan-toolkit/
+                      - img "GitHub Pages" [ref=f1e450]
+                    - link [ref=f1e451] [cursor=pointer]:
+                      - /url: https://github.com/chu0119/fscan-toolkit/pulls
+                      - img "PRs Welcome" [ref=f1e452]
+                  - paragraph [ref=f1e453]:
+                    - text: 两个
+                    - strong [ref=f1e454]: 纯静态 HTML 文件
+                    - text: ，双击浏览器打开即可使用 |
+                    - strong [ref=f1e455]: 零依赖、零安装、零配置、离线可用
+                - separator [ref=f1e456]
+                - generic [ref=f1e457]:
+                  - heading "📑 目录" [level=2] [ref=f1e458]
+                  - 'link "Permalink: 📑 目录" [ref=f1e459] [cursor=pointer]':
+                    - /url: "#-目录"
+                - list [ref=f1e462]:
+                  - listitem [ref=f1e463]:
+                    - link "是什么" [ref=f1e464] [cursor=pointer]:
+                      - /url: "#-%E6%98%AF%E4%BB%80%E4%B9%88"
+                  - listitem [ref=f1e465]:
+                    - link "🔧 命令生成器" [ref=f1e466] [cursor=pointer]:
+                      - /url: "#-fscan-command-builderhtml"
+                  - listitem [ref=f1e467]:
+                    - link "📊 报告生成器" [ref=f1e468] [cursor=pointer]:
+                      - /url: "#-fscan-report-generatorhtml"
+                  - listitem [ref=f1e469]:
+                    - link "🚀 快速开始" [ref=f1e470] [cursor=pointer]:
+                      - /url: "#-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B"
+                  - listitem [ref=f1e471]:
+                    - link "📸 完整截图" [ref=f1e472] [cursor=pointer]:
+                      - /url: "#-%E5%AE%8C%E6%95%B4%E6%88%AA%E5%9B%BE"
+                  - listitem [ref=f1e473]:
+                    - link "📁 文件清单" [ref=f1e474] [cursor=pointer]:
+                      - /url: "#-%E6%96%87%E4%BB%B6%E6%B8%85%E5%8D%95"
+                  - listitem [ref=f1e475]:
+                    - link "❓ 常见问题" [ref=f1e476] [cursor=pointer]:
+                      - /url: "#-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"
+                  - listitem [ref=f1e477]:
+                    - link "🔗 在线使用" [ref=f1e478] [cursor=pointer]:
+                      - /url: "#-%E5%9C%A8%E7%BA%BF%E4%BD%BF%E7%94%A8"
+                  - listitem [ref=f1e479]:
+                    - link "⚠ 免责声明" [ref=f1e480] [cursor=pointer]:
+                      - /url: "#-%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E"
+                  - listitem [ref=f1e481]:
+                    - link "🙏 致谢" [ref=f1e482] [cursor=pointer]:
+                      - /url: "#-%E8%87%B4%E8%B0%A2"
+                - separator [ref=f1e483]
+                - generic [ref=f1e484]:
+                  - heading "💡 是什么" [level=2] [ref=f1e485]
+                  - 'link "Permalink: 💡 是什么" [ref=f1e486] [cursor=pointer]':
+                    - /url: "#-是什么"
+                - paragraph [ref=f1e489]:
+                  - link "fscan" [ref=f1e490] [cursor=pointer]:
+                    - /url: https://github.com/shadow1ng/fscan
+                  - text: 是一款非常优秀的内网综合扫描工具，但它有
+                  - strong [ref=f1e491]: 74 个命令行参数
+                  - text: ，以及三个版本（fscan / fscan-web / pscan）的
+                  - strong [ref=f1e492]: 参数名各不相同
+                  - text: ，甚至存在
+                  - strong [ref=f1e493]: 同名参数含义完全不同
+                  - text: 的陷阱。
+                - paragraph [ref=f1e494]: 这个套件提供了两个工具来解决这个痛点：
+                - table [ref=f1e496]:
+                  - rowgroup [ref=f1e497]:
+                    - row [ref=f1e498]:
+                      - columnheader "工具" [ref=f1e499]
+                      - columnheader "解决的问题" [ref=f1e500]
+                  - rowgroup [ref=f1e501]:
+                    - row [ref=f1e502]:
+                      - cell [ref=f1e503]:
+                        - strong [ref=f1e504]: 命令生成器
+                      - cell "不用记参数、不用翻手册、不用担心 fscan↔pscan 参数名差异，点点选选生成正确命令" [ref=f1e505]
+                    - row [ref=f1e506]:
+                      - cell [ref=f1e507]:
+                        - strong [ref=f1e508]: 报告生成器
+                      - cell "把 fscan 输出的原始 TXT/JSON/CSV 变成排版精美的专业安全报告，一键导出 PDF" [ref=f1e509]
+                - separator [ref=f1e510]
+                - generic [ref=f1e511]:
+                  - heading "🔧 fscan-command-builder.html" [level=2] [ref=f1e512]
+                  - 'link "Permalink: 🔧 fscan-command-builder.html" [ref=f1e513] [cursor=pointer]':
+                    - /url: "#-fscan-command-builderhtml"
+                - generic [ref=f1e516]:
+                  - heading "交互式命令生成器" [level=3] [ref=f1e517]
+                  - 'link "Permalink: 交互式命令生成器" [ref=f1e518] [cursor=pointer]':
+                    - /url: "#交互式命令生成器"
+                - paragraph [ref=f1e521]: 不记参数，不翻手册，不用怕 fscan 和 pscan 参数名不一样 —— 点点选选就生成正确命令。
+                - generic [ref=f1e522]:
+                  - heading "核心功能" [level=3] [ref=f1e523]
+                  - 'link "Permalink: 核心功能" [ref=f1e524] [cursor=pointer]':
+                    - /url: "#核心功能"
+                - generic [ref=f1e527]:
+                  - heading "🎛 三工具无缝切换" [level=4] [ref=f1e528]
+                  - 'link "Permalink: 🎛 三工具无缝切换" [ref=f1e529] [cursor=pointer]':
+                    - /url: "#-三工具无缝切换"
+                - table [ref=f1e533]:
+                  - rowgroup [ref=f1e534]:
+                    - row [ref=f1e535]:
+                      - columnheader "工具" [ref=f1e536]
+                      - columnheader "说明" [ref=f1e537]
+                      - columnheader "示例" [ref=f1e538]
+                  - rowgroup [ref=f1e539]:
+                    - row [ref=f1e540]:
+                      - cell [ref=f1e541]:
+                        - strong [ref=f1e542]: fscan
+                      - cell "标准命令行扫描工具" [ref=f1e543]
+                      - cell "74 个命令行参数全覆盖" [ref=f1e544]
+                    - row [ref=f1e545]:
+                      - cell [ref=f1e546]:
+                        - strong [ref=f1e547]: pscan
+                      - cell "红队行动版（参数混淆）" [ref=f1e548]
+                      - cell "24 个参数名与 fscan 不同，自动映射" [ref=f1e549]
+                    - row [ref=f1e550]:
+                      - cell [ref=f1e551]:
+                        - strong [ref=f1e552]: fscan-web
+                      - cell "Web 可视化管理平台" [ref=f1e553]
+                      - cell [ref=f1e554]:
+                        - text: 仅有
+                        - code [ref=f1e555]: "-port"
+                        - text: 和
+                        - code [ref=f1e556]: "-lang"
+                        - text: 两个参数
+                - paragraph [ref=f1e557]:
+                  - strong [ref=f1e558]: 自动参数映射
+                  - text: ：选择 pscan 后，所有参数名自动从 fscan 的
+                  - code [ref=f1e559]: "-h"
+                  - text: /
+                  - code [ref=f1e560]: "-m"
+                  - text: /
+                  - code [ref=f1e561]: "-user"
+                  - text: 切换为 pscan 的
+                  - code [ref=f1e562]: "-t"
+                  - text: /
+                  - code [ref=f1e563]: "-st"
+                  - text: /
+                  - code [ref=f1e564]: "-usr"
+                  - text: ，生成命令时自动使用正确参数名。
+                - paragraph [ref=f1e565]:
+                  - strong [ref=f1e566]: 同名冲突警告
+                  - text: ：pscan 的
+                  - code [ref=f1e567]: "-hf"
+                  - text: 是哈希文件，fscan 的
+                  - code [ref=f1e568]: "-hf"
+                  - text: 是主机文件 —— 切换时界面会醒目高亮提示。
+                - generic [ref=f1e569]:
+                  - heading "📋 10 组折叠面板" [level=4] [ref=f1e570]
+                  - 'link "Permalink: 📋 10 组折叠面板" [ref=f1e571] [cursor=pointer]':
+                    - /url: "#-10-组折叠面板"
+                - paragraph [ref=f1e574]: 按功能分类，与 fscan 官方手册结构一一对应：
+                - table [ref=f1e576]:
+                  - rowgroup [ref=f1e577]:
+                    - row [ref=f1e578]:
+                      - columnheader "面板" [ref=f1e579]
+                      - columnheader "覆盖参数" [ref=f1e580]
+                  - rowgroup [ref=f1e581]:
+                    - row [ref=f1e582]:
+                      - cell "🎯 目标设置" [ref=f1e583]
+                      - cell "目标主机、主机文件、排除主机、排除主机文件" [ref=f1e584]
+                    - row [ref=f1e585]:
+                      - cell "🔌 端口控制" [ref=f1e586]
+                      - cell "端口列表、端口文件、排除端口" [ref=f1e587]
+                    - row [ref=f1e588]:
+                      - cell "⚙️ 扫描控制" [ref=f1e589]
+                      - cell "模式、线程、超时、速率等 11 个参数" [ref=f1e590]
+                    - row [ref=f1e591]:
+                      - cell "🔘 功能开关" [ref=f1e592]
+                      - cell "仅存活、跳过探测、禁用爆破/POC 等 12 个开关" [ref=f1e593]
+                    - row [ref=f1e594]:
+                      - cell "🔑 凭据与爆破" [ref=f1e595]
+                      - cell "用户名、密码、字典、哈希、私钥等 11 个参数" [ref=f1e596]
+                    - row [ref=f1e597]:
+                      - cell "🌐 Web 扫描" [ref=f1e598]
+                      - cell "URL、Cookie、User-Agent、POC 等" [ref=f1e599]
+                    - row [ref=f1e600]:
+                      - cell "💥 漏洞利用" [ref=f1e601]
+                      - cell "Redis 利用、MS17-010、反弹Shell 等" [ref=f1e602]
+                    - row [ref=f1e603]:
+                      - cell "🛠️ 后渗透" [ref=f1e604]
+                      - cell "21 个本地插件、持久化、下载等" [ref=f1e605]
+                    - row [ref=f1e606]:
+                      - cell "🔗 代理与网络" [ref=f1e607]
+                      - cell "HTTP/SOCKS5 代理、指定网卡" [ref=f1e608]
+                    - row [ref=f1e609]:
+                      - cell "📄 输出设置" [ref=f1e610]
+                      - cell "输出文件、格式、语言、调试等" [ref=f1e611]
+                - generic [ref=f1e612]:
+                  - heading "🎯 智能 IP → CIDR 转换" [level=4] [ref=f1e613]
+                  - 'link "Permalink: 🎯 智能 IP → CIDR 转换" [ref=f1e614] [cursor=pointer]':
+                    - /url: "#-智能-ip--cidr-转换"
+                - paragraph [ref=f1e617]:
+                  - text: 在目标主机输入框中输入任意 IP（如
+                  - code [ref=f1e618]: 192.168.1.100
+                  - text: ），点击右侧按钮：
+                - list [ref=f1e619]:
+                  - listitem [ref=f1e620]:
+                    - code [ref=f1e621]: 📐 C段
+                    - text: → 自动转为
+                    - code [ref=f1e622]: 192.168.1.0/24
+                  - listitem [ref=f1e623]:
+                    - code [ref=f1e624]: 📐 B段
+                    - text: → 自动转为
+                    - code [ref=f1e625]: 192.168.0.0/16
+                  - listitem [ref=f1e626]:
+                    - code [ref=f1e627]: 📐 A段
+                    - text: → 自动转为
+                    - code [ref=f1e628]: 192.0.0.0/8
+                - paragraph [ref=f1e629]: 支持多目标逗号分隔场景（只替换第一个 IP）。
+                - generic [ref=f1e630]:
+                  - heading "📊 13 组端口预设" [level=4] [ref=f1e631]
+                  - 'link "Permalink: 📊 13 组端口预设" [ref=f1e632] [cursor=pointer]':
+                    - /url: "#-13-组端口预设"
+                - table [ref=f1e636]:
+                  - rowgroup [ref=f1e637]:
+                    - row [ref=f1e638]:
+                      - columnheader "预设" [ref=f1e639]
+                      - columnheader "端口数" [ref=f1e640]
+                      - columnheader "典型端口" [ref=f1e641]
+                  - rowgroup [ref=f1e642]:
+                    - row [ref=f1e643]:
+                      - cell "🖥 Web服务" [ref=f1e644]
+                      - cell "8" [ref=f1e645]
+                      - cell "80, 81, 443, 8080, 8443, 9090, 8000, 8888" [ref=f1e646]
+                    - row [ref=f1e647]:
+                      - cell "🗄 数据库" [ref=f1e648]
+                      - cell "6" [ref=f1e649]
+                      - cell "3306, 1433, 5432, 6379, 27017, 1521" [ref=f1e650]
+                    - row [ref=f1e651]:
+                      - cell "🔐 远程管理" [ref=f1e652]
+                      - cell "6" [ref=f1e653]
+                      - cell "22, 23, 3389, 5900, 5985, 5986" [ref=f1e654]
+                    - row [ref=f1e655]:
+                      - cell "📂 文件共享" [ref=f1e656]
+                      - cell "5" [ref=f1e657]
+                      - cell "21, 139, 445, 873, 2049" [ref=f1e658]
+                    - row [ref=f1e659]:
+                      - cell "🔧 中间件" [ref=f1e660]
+                      - cell "7" [ref=f1e661]
+                      - cell "7001, 7002, 8161, 5672, 61616, 2181, 9092" [ref=f1e662]
+                    - row [ref=f1e663]:
+                      - cell "📧 邮件服务" [ref=f1e664]
+                      - cell "7" [ref=f1e665]
+                      - cell "25, 110, 143, 465, 587, 993, 995" [ref=f1e666]
+                    - row [ref=f1e667]:
+                      - cell "🏭 工控/IoT" [ref=f1e668]
+                      - cell "6" [ref=f1e669]
+                      - cell "502, 1883, 47808, 44818, 102, 20000" [ref=f1e670]
+                    - row [ref=f1e671]:
+                      - cell "📋 AD/目录" [ref=f1e672]
+                      - cell "6" [ref=f1e673]
+                      - cell "53, 88, 389, 636, 3268, 3269" [ref=f1e674]
+                    - row [ref=f1e675]:
+                      - cell "🌐 默认140端口" [ref=f1e676]
+                      - cell "140" [ref=f1e677]
+                      - cell "fscan 内置默认" [ref=f1e678]
+                    - row [ref=f1e679]:
+                      - cell "📊 常用100端口" [ref=f1e680]
+                      - cell "100" [ref=f1e681]
+                      - cell "Top 100 高频端口" [ref=f1e682]
+                    - row [ref=f1e683]:
+                      - cell "📊 常用500端口" [ref=f1e684]
+                      - cell "500" [ref=f1e685]
+                      - cell "Top 500（含所有常见企业服务）" [ref=f1e686]
+                    - row [ref=f1e687]:
+                      - cell "📊 常用1000端口" [ref=f1e688]
+                      - cell "1000" [ref=f1e689]
+                      - cell "全范围覆盖（类似 nmap top-ports）" [ref=f1e690]
+                    - row [ref=f1e691]:
+                      - cell "🌍 全端口" [ref=f1e692]
+                      - cell "65535" [ref=f1e693]
+                      - cell [ref=f1e694]:
+                        - code [ref=f1e695]: 1-65535
+                - generic [ref=f1e696]:
+                  - heading "🗂 内置快捷预设" [level=4] [ref=f1e697]
+                  - 'link "Permalink: 🗂 内置快捷预设" [ref=f1e698] [cursor=pointer]':
+                    - /url: "#-内置快捷预设"
+                - list [ref=f1e701]:
+                  - listitem [ref=f1e702]:
+                    - strong [ref=f1e703]: User-Agent
+                    - text: （5 个）：Chrome Win11、Firefox Win11、Chrome Mac、Safari iPhone、curl 8.x
+                  - listitem [ref=f1e704]:
+                    - strong [ref=f1e705]: 域名
+                    - text: （4 个）：corp.local、domain.local、internal.corp、ad.company.com
+                  - listitem [ref=f1e706]:
+                    - strong [ref=f1e707]: 发包速率
+                    - text: （4 个）：不限速、隐蔽 100/分、中速 500/分、快速 2000/分
+                  - listitem [ref=f1e708]:
+                    - strong [ref=f1e709]: 线程数
+                    - text: （3 个）：隐蔽 100、默认 600、高速 1000
+                - generic [ref=f1e710]:
+                  - heading "🔗 条件联动" [level=4] [ref=f1e711]
+                  - 'link "Permalink: 🔗 条件联动" [ref=f1e712] [cursor=pointer]':
+                    - /url: "#-条件联动"
+                - paragraph [ref=f1e715]: 开关类参数会自动控制相关参数的显隐：
+                - table [ref=f1e717]:
+                  - rowgroup [ref=f1e718]:
+                    - row [ref=f1e719]:
+                      - columnheader "开关" [ref=f1e720]
+                      - columnheader "效果" [ref=f1e721]
+                  - rowgroup [ref=f1e722]:
+                    - row [ref=f1e723]:
+                      - cell [ref=f1e724]:
+                        - code [ref=f1e725]: 仅存活探测
+                      - cell "折叠端口、爆破、Web、漏洞利用等面板" [ref=f1e726]
+                    - row [ref=f1e727]:
+                      - cell [ref=f1e728]:
+                        - code [ref=f1e729]: 禁用爆破
+                      - cell "隐藏整个凭据与爆破面板" [ref=f1e730]
+                    - row [ref=f1e731]:
+                      - cell [ref=f1e732]:
+                        - code [ref=f1e733]: 禁用POC
+                      - cell "隐藏 POC 相关字段" [ref=f1e734]
+                - paragraph [ref=f1e735]: 不会让用户填一堆无效参数，也不会出现互相矛盾的配置。
+                - generic [ref=f1e736]:
+                  - heading "⚙️ 可配置工具路径" [level=4] [ref=f1e737]
+                  - 'link "Permalink: ⚙️ 可配置工具路径" [ref=f1e738] [cursor=pointer]':
+                    - /url: "#️-可配置工具路径"
+                - paragraph [ref=f1e741]:
+                  - text: 不写死任何文件名或目录。点击右上角
+                  - code [ref=f1e742]: ⚙️ 设置
+                  - text: ：
+                - list [ref=f1e743]:
+                  - listitem [ref=f1e744]: 填入工具所在目录（可选）
+                  - listitem [ref=f1e745]: 填入三个工具的 exe 文件名（可用绝对路径）
+                  - listitem [ref=f1e746]: 自动持久化到浏览器本地存储
+                - generic [ref=f1e747]:
+                  - heading "💾 配置方案保存/加载" [level=4] [ref=f1e748]
+                  - 'link "Permalink: 💾 配置方案保存/加载" [ref=f1e749] [cursor=pointer]':
+                    - /url: "#-配置方案保存加载"
+                - paragraph [ref=f1e752]: 把当前的参数配置保存为预设方案：
+                - list [ref=f1e753]:
+                  - listitem [ref=f1e754]:
+                    - strong [ref=f1e755]: 保存
+                    - text: ：取名保存当前所有参数配置
+                  - listitem [ref=f1e756]:
+                    - strong [ref=f1e757]: 加载
+                    - text: ：从下拉菜单一键加载已保存的方案
+                  - listitem [ref=f1e758]:
+                    - strong [ref=f1e759]: 跨会话
+                    - text: ：数据存在 localStorage，关闭浏览器不丢失
+                - generic [ref=f1e760]:
+                  - heading "🕐 命令历史" [level=4] [ref=f1e761]
+                  - 'link "Permalink: 🕐 命令历史" [ref=f1e762] [cursor=pointer]':
+                    - /url: "#-命令历史"
+                - paragraph [ref=f1e765]: 自动记录最近 20 条生成过的命令，包含时间和工具名。
+                - generic [ref=f1e766]:
+                  - heading "📋 复制 & 运行" [level=4] [ref=f1e767]
+                  - 'link "Permalink: 📋 复制 & 运行" [ref=f1e768] [cursor=pointer]':
+                    - /url: "#-复制--运行"
+                - list [ref=f1e771]:
+                  - listitem [ref=f1e772]:
+                    - strong [ref=f1e773]: 复制命令
+                    - text: ：一键复制到剪贴板
+                  - listitem [ref=f1e774]:
+                    - strong [ref=f1e775]: 运行说明
+                    - text: ：弹窗指导如何切换到工具目录并运行
+                - separator [ref=f1e776]
+                - generic [ref=f1e777]:
+                  - heading "📊 fscan-report-generator.html" [level=2] [ref=f1e778]
+                  - 'link "Permalink: 📊 fscan-report-generator.html" [ref=f1e779] [cursor=pointer]':
+                    - /url: "#-fscan-report-generatorhtml"
+                - generic [ref=f1e782]:
+                  - heading "扫描报告生成器" [level=3] [ref=f1e783]
+                  - 'link "Permalink: 扫描报告生成器" [ref=f1e784] [cursor=pointer]':
+                    - /url: "#扫描报告生成器"
+                - paragraph [ref=f1e787]: 把 fscan 输出的 TXT/JSON/CSV 拖进去，自动解析，一键生成排版精美的专业安全报告。
+                - generic [ref=f1e788]:
+                  - heading "核心功能" [level=3] [ref=f1e789]
+                  - 'link "Permalink: 核心功能" [ref=f1e790] [cursor=pointer]':
+                    - /url: "#核心功能-1"
+                - generic [ref=f1e793]:
+                  - heading "📂 拖拽上传" [level=4] [ref=f1e794]
+                  - 'link "Permalink: 📂 拖拽上传" [ref=f1e795] [cursor=pointer]':
+                    - /url: "#-拖拽上传"
+                - paragraph [ref=f1e798]: 支持三种输入方式：
+                - list [ref=f1e799]:
+                  - listitem [ref=f1e800]:
+                    - strong [ref=f1e801]: 拖拽
+                    - text: ：把文件拖到虚线区域
+                  - listitem [ref=f1e802]:
+                    - strong [ref=f1e803]: 点击选择
+                    - text: ：点击虚线区域打开文件选择器
+                  - listitem [ref=f1e804]:
+                    - strong [ref=f1e805]: 示例数据
+                    - text: ：下拉菜单加载内置示例，“进来了就能体验”
+                - generic [ref=f1e806]:
+                  - heading "🔍 智能解析" [level=4] [ref=f1e807]
+                  - 'link "Permalink: 🔍 智能解析" [ref=f1e808] [cursor=pointer]':
+                    - /url: "#-智能解析"
+                - table [ref=f1e812]:
+                  - rowgroup [ref=f1e813]:
+                    - row [ref=f1e814]:
+                      - columnheader "格式" [ref=f1e815]
+                      - columnheader "支持情况" [ref=f1e816]
+                  - rowgroup [ref=f1e817]:
+                    - row [ref=f1e818]:
+                      - cell [ref=f1e819]:
+                        - strong [ref=f1e820]: TXT
+                      - cell [ref=f1e821]:
+                        - text: 按
+                        - code [ref=f1e822]: "# ===== 节头 ====="
+                        - text: 自动分节解析
+                    - row [ref=f1e823]:
+                      - cell [ref=f1e824]:
+                        - strong [ref=f1e825]: JSON
+                      - cell "自适应多种 schema 结构" [ref=f1e826]
+                    - row [ref=f1e827]:
+                      - cell [ref=f1e828]:
+                        - strong [ref=f1e829]: CSV
+                      - cell "标准 CSV 解析" [ref=f1e830]
+                - paragraph [ref=f1e831]: 解析内容包括：
+                - list [ref=f1e832]:
+                  - listitem [ref=f1e833]: 存活主机列表
+                  - listitem [ref=f1e834]: 开放端口（按主机分组聚合）
+                  - listitem [ref=f1e835]: 服务识别结果
+                  - listitem [ref=f1e836]: Web 服务 URL 清单
+                  - listitem [ref=f1e837]:
+                    - text: 漏洞发现（
+                    - strong [ref=f1e838]: 自动风险定级
+                    - text: ）
+                - generic [ref=f1e839]:
+                  - heading "🛡 自动风险定级" [level=4] [ref=f1e840]
+                  - 'link "Permalink: 🛡 自动风险定级" [ref=f1e841] [cursor=pointer]':
+                    - /url: "#-自动风险定级"
+                - paragraph [ref=f1e844]: 系统根据漏洞描述中的关键词自动标注风险等级：
+                - table [ref=f1e846]:
+                  - rowgroup [ref=f1e847]:
+                    - row [ref=f1e848]:
+                      - columnheader "等级" [ref=f1e849]
+                      - columnheader "标签" [ref=f1e850]
+                      - columnheader "触发关键词" [ref=f1e851]
+                  - rowgroup [ref=f1e852]:
+                    - row [ref=f1e853]:
+                      - cell "🔴 严重" [ref=f1e854]
+                      - cell "红色" [ref=f1e855]
+                      - cell "MS17-010、永恒之蓝、RCE、反序列化、任意文件上传" [ref=f1e856]
+                    - row [ref=f1e857]:
+                      - cell "🟠 高危" [ref=f1e858]
+                      - cell "橙色" [ref=f1e859]
+                      - cell "弱口令、未授权访问、默认密码、SQL注入、命令注入" [ref=f1e860]
+                    - row [ref=f1e861]:
+                      - cell "🟡 中危" [ref=f1e862]
+                      - cell "黄色" [ref=f1e863]
+                      - cell "版本泄露、不安全的配置、明文传输" [ref=f1e864]
+                    - row [ref=f1e865]:
+                      - cell "🔵 信息" [ref=f1e866]
+                      - cell "蓝色" [ref=f1e867]
+                      - cell "其他信息性发现" [ref=f1e868]
+                - paragraph [ref=f1e869]: 报告中的漏洞表格按风险等级从高到低排序。
+                - generic [ref=f1e870]:
+                  - heading "🎛 7 组章节开关" [level=4] [ref=f1e871]
+                  - 'link "Permalink: 🎛 7 组章节开关" [ref=f1e872] [cursor=pointer]':
+                    - /url: "#-7-组章节开关"
+                - paragraph [ref=f1e875]: 报告预览前可以勾选要包含的内容：
+                - list [ref=f1e876]:
+                  - listitem [ref=f1e877]: ✅ 首页统计总览
+                  - listitem [ref=f1e878]: ✅ 存活主机列表
+                  - listitem [ref=f1e879]: ✅ 开放端口明细（按主机分组）
+                  - listitem [ref=f1e880]: ✅ 服务识别结果
+                  - listitem [ref=f1e881]: ✅ Web 服务列表
+                  - listitem [ref=f1e882]: ✅ 漏洞发现（含风险等级标记，按严重度排序）
+                  - listitem [ref=f1e883]: □ 附录：原始扫描输出
+                - paragraph [ref=f1e884]: 不需要的章节取消勾选即可，预览实时更新。
+                - generic [ref=f1e885]:
+                  - heading "📝 自定义报告信息" [level=4] [ref=f1e886]
+                  - 'link "Permalink: 📝 自定义报告信息" [ref=f1e887] [cursor=pointer]':
+                    - /url: "#-自定义报告信息"
+                - list [ref=f1e890]:
+                  - listitem [ref=f1e891]:
+                    - strong [ref=f1e892]: 报告标题
+                    - text: （默认"内网安全扫描报告"）
+                  - listitem [ref=f1e893]:
+                    - strong [ref=f1e894]: 项目名称
+                    - text: （自动从文件名推断）
+                  - listitem [ref=f1e895]:
+                    - strong [ref=f1e896]: 扫描人员
+                    - text: （填你的名字/ID）
+                - generic [ref=f1e897]:
+                  - heading "👁 实时预览" [level=4] [ref=f1e898]
+                  - 'link "Permalink: 👁 实时预览" [ref=f1e899] [cursor=pointer]':
+                    - /url: "#-实时预览"
+                - paragraph [ref=f1e902]: 右侧白色预览区，所见即所得。报告包含：
+                - list [ref=f1e903]:
+                  - listitem [ref=f1e904]: 首页 KPI 统计卡片
+                  - listitem [ref=f1e905]: 风险概览汇总（严重/高危/中危各多少条）
+                  - listitem [ref=f1e906]: 各章节数据表格
+                  - listitem [ref=f1e907]: 页脚生成时间和免责声明
+                - generic [ref=f1e908]:
+                  - heading "🖨 导出 PDF / 保存 HTML" [level=4] [ref=f1e909]
+                  - 'link "Permalink: 🖨 导出 PDF / 保存 HTML" [ref=f1e910] [cursor=pointer]':
+                    - /url: "#-导出-pdf--保存-html"
+                - list [ref=f1e913]:
+                  - listitem [ref=f1e914]:
+                    - code [ref=f1e915]: Ctrl + P
+                    - text: → 打印为 PDF（带样式）
+                  - listitem [ref=f1e916]:
+                    - code [ref=f1e917]: Ctrl + S
+                    - text: → 保存为独立 HTML 文件
+                - separator [ref=f1e918]
+                - generic [ref=f1e919]:
+                  - heading "🚀 快速开始" [level=2] [ref=f1e920]
+                  - 'link "Permalink: 🚀 快速开始" [ref=f1e921] [cursor=pointer]':
+                    - /url: "#-快速开始"
+                - generic [ref=f1e924]:
+                  - heading "在线使用" [level=3] [ref=f1e925]
+                  - 'link "Permalink: 在线使用" [ref=f1e926] [cursor=pointer]':
+                    - /url: "#在线使用"
+                - paragraph [ref=f1e929]:
+                  - text: 直接访问 GitHub Pages：
+                  - strong [ref=f1e930]:
+                    - link "https://chu0119.github.io/fscan-toolkit/" [ref=f1e931] [cursor=pointer]:
+                      - /url: https://chu0119.github.io/fscan-toolkit/
+                - generic [ref=f1e932]:
+                  - heading "离线使用" [level=3] [ref=f1e933]
+                  - 'link "Permalink: 离线使用" [ref=f1e934] [cursor=pointer]':
+                    - /url: "#离线使用"
+                - list [ref=f1e937]:
+                  - listitem [ref=f1e938]:
+                    - text: 下载仓库（绿色
+                    - code [ref=f1e939]: Code
+                    - text: →
+                    - code [ref=f1e940]: Download ZIP
+                    - text: ）
+                  - listitem [ref=f1e941]: 解压后在浏览器中打开：
+                - generic [ref=f1e942]:
+                  - code [ref=f1e944]: fscan-command-builder.html → 命令生成器 fscan-report-generator.html → 报告生成器
+                  - button "Copy code to clipboard" [ref=f1e946] [cursor=pointer]
+                - generic [ref=f1e950]:
+                  - heading "命令生成器使用步骤" [level=3] [ref=f1e951]
+                  - 'link "Permalink: 命令生成器使用步骤" [ref=f1e952] [cursor=pointer]':
+                    - /url: "#命令生成器使用步骤"
+                - generic [ref=f1e955]:
+                  - code [ref=f1e957]: ① 双击 fscan-command-builder.html 在浏览器中打开 ② 点击右上角 ⚙️ 设置，填入你的工具文件名（可带路径） ③ 在左侧面板配置参数（填入目标、选端口、调参数） ④ 底部实时显示生成命令 → 点击 📋 复制命令 ⑤ 粘贴到 PowerShell / CMD 中运行
+                  - button "Copy code to clipboard" [ref=f1e959] [cursor=pointer]
+                - generic [ref=f1e963]:
+                  - heading "报告生成器使用步骤" [level=3] [ref=f1e964]
+                  - 'link "Permalink: 报告生成器使用步骤" [ref=f1e965] [cursor=pointer]':
+                    - /url: "#报告生成器使用步骤"
+                - generic [ref=f1e968]:
+                  - code [ref=f1e970]: ① 双击 fscan-report-generator.html 在浏览器中打开 ② 把 fscan 输出的 result.txt（或 .json / .csv）拖到左侧 ③ 勾选或取消想要包含的章节 ④ 右侧预览报告 → Ctrl+P 打印为 PDF
+                  - button "Copy code to clipboard" [ref=f1e972] [cursor=pointer]
+                - separator [ref=f1e976]
+                - generic [ref=f1e977]:
+                  - heading "📸 完整截图" [level=2] [ref=f1e978]
+                  - 'link "Permalink: 📸 完整截图" [ref=f1e979] [cursor=pointer]':
+                    - /url: "#-完整截图"
+                - generic [ref=f1e982]:
+                  - heading "命令生成器" [level=3] [ref=f1e983]
+                  - 'link "Permalink: 命令生成器" [ref=f1e984] [cursor=pointer]':
+                    - /url: "#命令生成器"
+                - group [ref=f1e987]:
+                  - generic "默认初始状态 — fscan 模式" [ref=f1e988] [cursor=pointer]
+                  - link [ref=f1e989] [cursor=pointer]:
+                    - /url: /chu0119/fscan-toolkit/blob/main/screenshots/builder-01-default.png
+                    - img "默认状态" [ref=f1e990]
+                - group [ref=f1e991]:
+                  - generic "填充参数 — 典型扫描场景" [ref=f1e992] [cursor=pointer]
+                - group [ref=f1e993]:
+                  - generic "切换到 pscan — 参数名自动映射" [ref=f1e994] [cursor=pointer]
+                - group [ref=f1e995]:
+                  - generic "切换到 fscan-web — 精简启动器" [ref=f1e996] [cursor=pointer]
+                - group [ref=f1e997]:
+                  - generic "⚙️ 设置弹窗 — 配置工具路径" [ref=f1e998] [cursor=pointer]
+                - generic [ref=f1e999]:
+                  - heading "报告生成器" [level=3] [ref=f1e1000]
+                  - 'link "Permalink: 报告生成器" [ref=f1e1001] [cursor=pointer]':
+                    - /url: "#报告生成器"
+                - group [ref=f1e1004]:
+                  - generic "初始空白状态 — 拖拽区域" [ref=f1e1005] [cursor=pointer]
+                - group [ref=f1e1006]:
+                  - generic "加载示例数据 — 完整报告预览" [ref=f1e1007] [cursor=pointer]
+                - separator [ref=f1e1008]
+                - generic [ref=f1e1009]:
+                  - heading "📁 文件清单" [level=2] [ref=f1e1010]
+                  - 'link "Permalink: 📁 文件清单" [ref=f1e1011] [cursor=pointer]':
+                    - /url: "#-文件清单"
+                - table [ref=f1e1015]:
+                  - rowgroup [ref=f1e1016]:
+                    - row [ref=f1e1017]:
+                      - columnheader "文件" [ref=f1e1018]
+                      - columnheader "大小" [ref=f1e1019]
+                      - columnheader "用途" [ref=f1e1020]
+                  - rowgroup [ref=f1e1021]:
+                    - row [ref=f1e1022]:
+                      - cell [ref=f1e1023]:
+                        - code [ref=f1e1024]: fscan-command-builder.html
+                      - cell "~80 KB" [ref=f1e1025]
+                      - cell "fscan/pscan/fscan-web 交互式命令生成器" [ref=f1e1026]
+                    - row [ref=f1e1027]:
+                      - cell [ref=f1e1028]:
+                        - code [ref=f1e1029]: fscan-report-generator.html
+                      - cell "~30 KB" [ref=f1e1030]
+                      - cell "扫描结果解析 & 专业报告生成器" [ref=f1e1031]
+                    - row [ref=f1e1032]:
+                      - cell [ref=f1e1033]:
+                        - code [ref=f1e1034]: fscan-manual.md
+                      - cell "26 KB" [ref=f1e1035]
+                      - cell "fscan 命令行版完整中文手册" [ref=f1e1036]
+                    - row [ref=f1e1037]:
+                      - cell [ref=f1e1038]:
+                        - code [ref=f1e1039]: fscan-manual.docx
+                      - cell "50 KB" [ref=f1e1040]
+                      - cell "fscan 手册 Word 版（精美排版）" [ref=f1e1041]
+                    - row [ref=f1e1042]:
+                      - cell [ref=f1e1043]:
+                        - code [ref=f1e1044]: fscan-web-manual.md
+                      - cell "7 KB" [ref=f1e1045]
+                      - cell "fscan-web Web版中文手册" [ref=f1e1046]
+                    - row [ref=f1e1047]:
+                      - cell [ref=f1e1048]:
+                        - code [ref=f1e1049]: fscan-web-manual.docx
+                      - cell "42 KB" [ref=f1e1050]
+                      - cell "fscan-web 手册 Word 版" [ref=f1e1051]
+                    - row [ref=f1e1052]:
+                      - cell [ref=f1e1053]:
+                        - code [ref=f1e1054]: pscan-manual.md
+                      - cell "19 KB" [ref=f1e1055]
+                      - cell "pscan 红队版完整中文手册" [ref=f1e1056]
+                    - row [ref=f1e1057]:
+                      - cell [ref=f1e1058]:
+                        - code [ref=f1e1059]: pscan-manual.docx
+                      - cell "46 KB" [ref=f1e1060]
+                      - cell "pscan 手册 Word 版" [ref=f1e1061]
+                    - row [ref=f1e1062]:
+                      - cell [ref=f1e1063]:
+                        - code [ref=f1e1064]: README.md
+                      - cell "—" [ref=f1e1065]
+                      - cell "本文件" [ref=f1e1066]
+                    - row [ref=f1e1067]:
+                      - cell [ref=f1e1068]:
+                        - code [ref=f1e1069]: LICENSE
+                      - cell "—" [ref=f1e1070]
+                      - cell "MIT 开源协议" [ref=f1e1071]
+                    - row [ref=f1e1072]:
+                      - cell [ref=f1e1073]:
+                        - code [ref=f1e1074]: screenshots/
+                      - cell "—" [ref=f1e1075]
+                      - cell "截图目录" [ref=f1e1076]
+                    - row [ref=f1e1077]:
+                      - cell [ref=f1e1078]:
+                        - code [ref=f1e1079]: docs/
+                      - cell "—" [ref=f1e1080]
+                      - cell "设计文档" [ref=f1e1081]
+                - separator [ref=f1e1082]
+                - generic [ref=f1e1083]:
+                  - heading "❓ 常见问题" [level=2] [ref=f1e1084]
+                  - 'link "Permalink: ❓ 常见问题" [ref=f1e1085] [cursor=pointer]':
+                    - /url: "#-常见问题"
+                - group [ref=f1e1088]:
+                  - 'generic "Q: 为什么工具路径不写死？" [ref=f1e1089] [cursor=pointer]'
+                - group [ref=f1e1090]:
+                  - 'generic "Q: 在线版（GitHub Pages）能用吗？" [ref=f1e1091] [cursor=pointer]'
+                - group [ref=f1e1092]:
+                  - 'generic "Q: pscan 和 fscan 参数名不一样怎么办？" [ref=f1e1093] [cursor=pointer]'
+                - group [ref=f1e1094]:
+                  - 'generic "Q: 报告生成器支持哪些输入格式？" [ref=f1e1095] [cursor=pointer]'
+                - group [ref=f1e1096]:
+                  - 'generic "Q: 报告能导出吗？" [ref=f1e1097] [cursor=pointer]'
+                - group [ref=f1e1098]:
+                  - 'generic "Q: 离线能用吗？" [ref=f1e1099] [cursor=pointer]'
+                - group [ref=f1e1100]:
+                  - 'generic "Q: 浏览器兼容性？" [ref=f1e1101] [cursor=pointer]'
+                - separator [ref=f1e1102]
+                - generic [ref=f1e1103]:
+                  - heading "🔗 在线使用" [level=2] [ref=f1e1104]
+                  - 'link "Permalink: 🔗 在线使用" [ref=f1e1105] [cursor=pointer]':
+                    - /url: "#-在线使用"
+                - paragraph [ref=f1e1108]:
+                  - text: 本仓库已启用
+                  - strong [ref=f1e1109]: GitHub Pages
+                  - text: ，可以直接在线使用：
+                - generic [ref=f1e1110]:
+                  - heading [level=3] [ref=f1e1111]:
+                    - text: 🎛
+                    - link "命令生成器 — 在线使用" [ref=f1e1112] [cursor=pointer]:
+                      - /url: https://chu0119.github.io/fscan-toolkit/fscan-command-builder.html
+                  - 'link "Permalink: 🎛 命令生成器 — 在线使用" [ref=f1e1113] [cursor=pointer]':
+                    - /url: "#-命令生成器--在线使用"
+                - generic [ref=f1e1116]:
+                  - heading [level=3] [ref=f1e1117]:
+                    - text: 📊
+                    - link "报告生成器 — 在线使用" [ref=f1e1118] [cursor=pointer]:
+                      - /url: https://chu0119.github.io/fscan-toolkit/fscan-report-generator.html
+                  - 'link "Permalink: 📊 报告生成器 — 在线使用" [ref=f1e1119] [cursor=pointer]':
+                    - /url: "#-报告生成器--在线使用"
+                - blockquote [ref=f1e1122]:
+                  - paragraph [ref=f1e1123]:
+                    - text: 或者从
+                    - link "项目主页" [ref=f1e1124] [cursor=pointer]:
+                      - /url: https://chu0119.github.io/fscan-toolkit/
+                    - text: 导航到具体工具。
+                - separator [ref=f1e1125]
+                - generic [ref=f1e1126]:
+                  - heading "⚠ 免责声明" [level=2] [ref=f1e1127]
+                  - 'link "Permalink: ⚠ 免责声明" [ref=f1e1128] [cursor=pointer]':
+                    - /url: "#-免责声明"
+                - paragraph [ref=f1e1131]:
+                  - text: 本工具套件仅面向
+                  - strong [ref=f1e1132]: 合法授权
+                  - text: 的企业安全建设行为。使用前请确保：
+                - list [ref=f1e1133]:
+                  - listitem [ref=f1e1134]:
+                    - text: ✅ 已获得目标所有者的
+                    - strong [ref=f1e1135]: 书面授权
+                  - listitem [ref=f1e1136]: ✅ 符合当地法律法规
+                  - listitem [ref=f1e1137]:
+                    - text: ✅
+                    - strong [ref=f1e1138]: 不对非授权目标扫描
+                  - listitem [ref=f1e1139]: ✅ 不用于任何非法入侵、破坏活动
+                - paragraph [ref=f1e1140]:
+                  - strong [ref=f1e1141]: 工具开发者不承担任何非法使用产生的后果。
+                - separator [ref=f1e1142]
+                - generic [ref=f1e1143]:
+                  - heading "🙏 致谢" [level=2] [ref=f1e1144]
+                  - 'link "Permalink: 🙏 致谢" [ref=f1e1145] [cursor=pointer]':
+                    - /url: "#-致谢"
+                - list [ref=f1e1148]:
+                  - listitem [ref=f1e1149]:
+                    - link "shadow1ng/fscan" [ref=f1e1150] [cursor=pointer]:
+                      - /url: https://github.com/shadow1ng/fscan
+                    - text: — fscan 原作者，优秀的内网扫描工具
+                  - listitem [ref=f1e1151]:
+                    - link "webzzaa/pscan" [ref=f1e1152] [cursor=pointer]:
+                      - /url: https://github.com/webzzaa/pscan
+                    - text: — pscan 原作者，红队行动版
+                  - listitem [ref=f1e1153]:
+                    - link "knownsec/404StarLink" [ref=f1e1154] [cursor=pointer]:
+                      - /url: https://github.com/knownsec/404StarLink
+                    - text: — fscan 所在的星链计划
+                - separator [ref=f1e1155]
+                - subscript [ref=f1e1157]: Made with ❤️ for the security community
+        - generic [ref=f1e1160]:
+          - generic [ref=f1e1161]:
+            - heading "About" [level=2] [ref=f1e1162]
+            - paragraph [ref=f1e1163]: fscan 图形化管理工具套件 — 命令生成器 + 报告解析器，零依赖纯静态 HTML
+            - heading "Resources" [level=3] [ref=f1e1164]
+            - link "Readme" [ref=f1e1166] [cursor=pointer]:
+              - /url: "#readme-ov-file"
+            - link "MIT license" [ref=f1e1170] [cursor=pointer]:
+              - /url: "#MIT-1-ov-file"
+            - link "Activity" [ref=f1e1174] [cursor=pointer]:
+              - /url: /chu0119/fscan-toolkit/activity
+            - heading "Stars" [level=3] [ref=f1e1177]
+            - generic [ref=f1e1179]:
+              - strong [ref=f1e1182]: "0"
+              - text: stars
+            - heading "Watchers" [level=3] [ref=f1e1183]
+            - generic [ref=f1e1185]:
+              - strong [ref=f1e1188]: "0"
+              - text: watching
+            - heading "Forks" [level=3] [ref=f1e1189]
+            - link [ref=f1e1191] [cursor=pointer]:
+              - /url: /chu0119/fscan-toolkit/forks
+              - strong [ref=f1e1195]: "0"
+              - text: forks
+            - link "Report repository" [ref=f1e1197] [cursor=pointer]:
+              - /url: /contact/report-content?content_url=https%3A%2F%2Fgithub.com%2Fchu0119%2Ffscan-toolkit&report=chu0119+%28user%29
+          - generic [ref=f1e1198]:
+            - heading [level=2] [ref=f1e1199]:
+              - link "Releases" [ref=f1e1201] [cursor=pointer]:
+                - /url: /chu0119/fscan-toolkit/releases
+            - generic [ref=f1e1202]: No releases published
+          - generic [ref=f1e1203]:
+            - heading "Contributors (1)" [level=2] [ref=f1e1204]:
+              - generic [ref=f1e1205]:
+                - link "Contributors" [ref=f1e1206] [cursor=pointer]:
+                  - /url: /chu0119/fscan-toolkit/graphs/contributors
+                - generic [ref=f1e1207]: "1"
+                - generic [ref=f1e1208]: (1)
+            - list [ref=f1e1209]:
+              - listitem [ref=f1e1210]:
+                - link [ref=f1e1211] [cursor=pointer]:
+                  - /url: /chu0119
+                  - img "@chu0119" [ref=f1e1212]
+                - generic "chu0119 xingchuan" [ref=f1e1213]:
+                  - link [ref=f1e1214] [cursor=pointer]:
+                    - /url: /chu0119
+                    - strong [ref=f1e1215]: chu0119
+                    - text: xingchuan
+          - generic [ref=f1e1216]:
+            - heading "Languages" [level=2] [ref=f1e1217]
+            - generic [ref=f1e1219]:
+              - 'progressbar "HTML: 97.1%" [ref=f1e1220]'
+              - 'progressbar "Python: 2.9%" [ref=f1e1221]'
+            - list [ref=f1e1222]:
+              - listitem [ref=f1e1223]:
+                - link "HTML 97.1%" [ref=f1e1224] [cursor=pointer]:
+                  - /url: /chu0119/fscan-toolkit/search?l=html
+                  - generic [ref=f1e1226]: HTML
+                  - generic [ref=f1e1227]: 97.1%
+              - listitem [ref=f1e1228]:
+                - link "Python 2.9%" [ref=f1e1229] [cursor=pointer]:
+                  - /url: /chu0119/fscan-toolkit/search?l=python
+                  - generic [ref=f1e1231]: Python
+                  - generic [ref=f1e1232]: 2.9%
+    - contentinfo [ref=f1e1234]:
+      - heading "Footer" [level=2] [ref=f1e1235]
+      - generic [ref=f1e1236]:
+        - generic [ref=f1e1237]:
+          - link "GitHub Homepage" [ref=f1e1238] [cursor=pointer]:
+            - /url: https://github.com
+          - generic [ref=f1e1241]: © 2026 GitHub, Inc.
+        - navigation "Footer" [ref=f1e1242]:
+          - heading "Footer navigation" [level=3] [ref=f1e1243]
+          - list "Footer navigation" [ref=f1e1244]:
+            - listitem [ref=f1e1245]:
+              - link "Terms" [ref=f1e1246] [cursor=pointer]:
+                - /url: https://docs.github.com/site-policy/github-terms/github-terms-of-service
+            - listitem [ref=f1e1247]:
+              - link "Privacy" [ref=f1e1248] [cursor=pointer]:
+                - /url: https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
+            - listitem [ref=f1e1249]:
+              - link "Security" [ref=f1e1250] [cursor=pointer]:
+                - /url: https://github.com/security
+            - listitem [ref=f1e1251]:
+              - link "Status" [ref=f1e1252] [cursor=pointer]:
+                - /url: https://www.githubstatus.com/
+            - listitem [ref=f1e1253]:
+              - link "Community" [ref=f1e1254] [cursor=pointer]:
+                - /url: https://github.community/
+            - listitem [ref=f1e1255]:
+              - link "Docs" [ref=f1e1256] [cursor=pointer]:
+                - /url: https://docs.github.com/
+            - listitem [ref=f1e1257]:
+              - link "Contact" [ref=f1e1258] [cursor=pointer]:
+                - /url: https://support.github.com?tags=dotcom-footer
+            - listitem [ref=f1e1259]:
+              - button "Manage cookies" [ref=f1e1261] [cursor=pointer]
+            - listitem [ref=f1e1262]:
+              - button "Do not share my personal information" [ref=f1e1264] [cursor=pointer]
+  - alert [ref=f1e1267]
