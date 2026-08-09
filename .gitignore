@@ -1,0 +1,30 @@
+# 二进制文件，不上传
+*.exe
+*.dll
+*.so
+*.dylib
+
+# 编译产物
+/build/
+/dist/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# 临时文件
+*.tmp
+*.log
+~$*
+*.swp
+*.swo
+
+# IDE
+.vscode/
+.idea/
+
+# 系统文件
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
