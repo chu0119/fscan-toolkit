@@ -670,9 +670,9 @@ const PARAMS=[
 
 let tool='fscan';
 const TOOLS={
-  fscan:{name:'fscan (命令行版)',key:'fscan'},
-  pscan:{name:'pscan (红队版)',key:'pscan'},
-  web:{name:'fscan-web (Web版)',key:'web'},
+  fscan:{name:'fscan (命令行版)',key:'fscan',exe:'fscan.exe'},
+  pscan:{name:'pscan (红队版)',key:'pscan',exe:'pscan.exe'},
+  web:{name:'fscan-web (Web版)',key:'web',exe:'fscan-web.exe'},
 };
 
 // --- tool path config, persisted in localStorage ---
@@ -880,7 +880,9 @@ function tglPanel(h){
 // ═══════════════════════════════════════════════════════
 
 function onToolSwitch(){
-  tool=document.getElementById('tsel').value;renderAll();
+  tool=document.getElementById('tsel').value;
+  loadCfg(); // reload exe names for the new tool before rendering
+  renderAll();
 }
 function onCh(id,v){
   vals[id]=v;
@@ -907,12 +909,12 @@ function genCmd(){
   const dir=getCfgDir();
   if(isWeb()){
     const p=vals['webPort']||'10240',l=vals['lang']||'zh';
-    let c=(dir?dir.replace(/\\+$/,'')+'\\':'')+TOOLS.web.exe;
+    let c=(dir?dir.replace(/\\+$/,'')+'\\':'')+(TOOLS.web&&TOOLS.web.exe||'fscan-web.exe');
     if(p!=='10240')c+=` -port ${p}`;
     if(l!=='zh')c+=` -lang ${l}`;
     return c;
   }
-  const parts=[(dir?dir.replace(/\\+$/,'')+'\\':'')+TOOLS[tool].exe];
+  const parts=[(dir?dir.replace(/\\+$/,'')+'\\':'')+(TOOLS[tool]&&TOOLS[tool].exe||'fscan.exe')];
   const ord=CATS.map(c=>aParams().filter(p=>p.cat===c.id&&vis(p))).flat();
   for(const p of ord){
     const f=flag(p);if(!f)continue;
@@ -926,7 +928,7 @@ function genCmd(){
 
 function updateCmd(){
   const c=genCmd();const b=document.getElementById('cmd-box');
-  const exe=(getCfgDir()?getCfgDir().replace(/\\+$/,'')+'\\':'')+TOOLS[tool].exe;
+  const exe=(getCfgDir()?getCfgDir().replace(/\\+$/,'')+'\\':'')+(TOOLS[tool]&&TOOLS[tool].exe||'fscan.exe');
   let h=c;
   // escape backslashes in exe for regex
   const exeEsc=exe.replace(/\\/g,'\\\\');
