@@ -33,7 +33,7 @@
 
 ## 💡 是什么
 
-[fscan](https://github.com/shadow1ng/fscan) 是一款非常优秀的内网综合扫描工具，但它有 **74 个命令行参数**，以及三个版本（fscan / fscan-web / pscan）的**参数名各不相同**，甚至存在**同名参数含义完全不同**的陷阱。
+[fscan](https://github.com/shadow1ng/fscan) 是一款非常优秀的内网综合扫描工具，但它有 **74 个命令行参数**，以及两个工具（fscan / pscan）的**参数名各不相同**，甚至存在**同名参数含义完全不同**的陷阱。
 
 这个套件提供了两个工具来解决这个痛点：
 
@@ -52,13 +52,12 @@
 
 ### 核心功能
 
-#### 🎛 三工具无缝切换
+#### 🎛 双工具无缝切换
 
 | 工具 | 说明 | 示例 |
 |------|------|------|
-| **fscan** | 标准命令行扫描工具 | 74 个命令行参数全覆盖 |
-| **pscan** | 红队行动版（参数混淆） | 24 个参数名与 fscan 不同，自动映射 |
-| **fscan-web** | Web 可视化管理平台 | 仅有 `-port` 和 `-lang` 两个参数 |
+| **fscan** | 标准命令行扫描工具 | 74 个参数全覆盖 |
+| **pscan** | 红队行动版（参数混淆） | 24 个参数名自动映射 |
 
 **自动参数映射**：选择 pscan 后，所有参数名自动从 fscan 的 `-h`/`-m`/`-user` 切换为 pscan 的 `-t`/`-st`/`-usr`，生成命令时自动使用正确参数名。
 
@@ -133,7 +132,7 @@
 不写死任何文件名或目录。点击右上角 `⚙️ 设置`：
 
 - 填入工具所在目录（可选）
-- 填入三个工具的 exe 文件名（可用绝对路径）
+- 填入两个工具的 exe 文件名（可用绝对路径）
 - 自动持久化到浏览器本地存储
 
 #### 💾 配置方案保存/加载
@@ -293,11 +292,6 @@ fscan-report-generator.html     → 报告生成器
 </details>
 
 <details>
-<summary><b>切换到 fscan-web — 精简启动器</b></summary>
-<img src="screenshots/builder-04-web.png" alt="fscan-web模式">
-</details>
-
-<details>
 <summary><b>⚙️ 设置弹窗 — 配置工具路径</b></summary>
 <img src="screenshots/builder-05-settings.png" alt="设置弹窗">
 </details>
@@ -320,12 +314,10 @@ fscan-report-generator.html     → 报告生成器
 
 | 文件 | 大小 | 用途 |
 |------|------|------|
-| `fscan-command-builder.html` | ~80 KB | fscan/pscan/fscan-web 交互式命令生成器 |
+| `fscan-command-builder.html` | ~80 KB | fscan/pscan 交互式命令生成器 |
 | `fscan-report-generator.html` | ~30 KB | 扫描结果解析 & 专业报告生成器 |
 | `fscan-manual.md` | 26 KB | fscan 命令行版完整中文手册 |
 | `fscan-manual.docx` | 50 KB | fscan 手册 Word 版（精美排版） |
-| `fscan-web-manual.md` | 7 KB | fscan-web Web版中文手册 |
-| `fscan-web-manual.docx` | 42 KB | fscan-web 手册 Word 版 |
 | `pscan-manual.md` | 19 KB | pscan 红队版完整中文手册 |
 | `pscan-manual.docx` | 46 KB | pscan 手册 Word 版 |
 | `README.md` | — | 本文件 |
