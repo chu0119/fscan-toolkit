@@ -7,8 +7,8 @@
 **fscan 图形化管理工具套件 — 让 fscan 更易用、更专业**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-在线使用-success)](https://chu0119.github.io/fscan-toolkit/)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/chu0119/fscan-toolkit/pulls)
+
+
 
 两个**纯静态 HTML 文件**，双击浏览器打开即可使用 | **零依赖、零安装、零配置、离线可用**
 
@@ -237,11 +237,7 @@
 
 ## 🚀 快速开始
 
-### 在线使用
-
-直接访问 GitHub Pages：**[https://chu0119.github.io/fscan-toolkit/](https://chu0119.github.io/fscan-toolkit/)**
-
-### 离线使用
+### 使用方式
 
 1. 下载仓库（绿色 `Code` → `Download ZIP`）
 2. 解压后在浏览器中打开：
@@ -381,18 +377,6 @@ fscan-report-generator.html     → 报告生成器
 
 支持所有现代浏览器：Chrome / Edge / Firefox / Safari。IE 不支持。
 </details>
-
----
-
-## 🔗 在线使用
-
-本仓库已启用 **GitHub Pages**，可以直接在线使用：
-
-### 🎛 [命令生成器 — 在线使用](https://chu0119.github.io/fscan-toolkit/fscan-command-builder.html)
-
-### 📊 [报告生成器 — 在线使用](https://chu0119.github.io/fscan-toolkit/fscan-report-generator.html)
-
-> 或者从 [项目主页](https://chu0119.github.io/fscan-toolkit/) 导航到具体工具。
 
 ---
 
