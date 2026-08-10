@@ -316,6 +316,7 @@ input.w-xs{max-width:130px}
   <select id="tsel" onchange="onToolSwitch()">
     <option value="fscan">fscan · 命令行版</option>
     <option value="pscan">pscan · 红队版</option>
+    <option value="fscan-web">fscan-web · Web版</option>
   </select>
   <select id="psel" onchange="loadPreset(this.value)">
     <option value="">📂 加载方案…</option>
@@ -657,4 +658,406 @@ const PARAMS=[
    label:'日志级别',
    desc:'控制输出日志的详细程度。默认 <code>base,info,success</code> 已满足大多数需求。<br>可选值：<code>base</code>、<code>info</code>、<code>success</code>、<code>error</code>、<code>debug</code>。多个级别用逗号分隔。一般不需修改。'},
 
+  // ── FSCAN-WEB ONLY ──
+  {id:'webPort',cat:'target',t:'number',fs:null,ps:null,o:5,d:'10240',w:'sm',wo:true,
+   label:'Web服务器端口',
+   desc:'fscan-web 内嵌 Web 服务器的<strong>监听端口号</strong>。默认 10240。<br>启动后浏览器访问 <code>http://127.0.0.1:端口号</code> 即可操作。<br>端口冲突时换成 8080、8888 等。<strong>仅监听本地回环地址，外部无法直接访问。远程使用请走 SSH 隧道。</strong>'},
 ];
+
+// ═══════════════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════════════
+
+let tool='fscan';
+const TOOLS={
+  fscan:{name:'fscan (命令行版)',key:'fscan',exe:'fscan.exe'},
+  pscan:{name:'pscan (红队版)',key:'pscan',exe:'pscan.exe'},
+  web:{name:'fscan-web (Web版)',key:'web',exe:'fscan-web.exe'},
+};
+
+// --- tool path config, persisted in localStorage ---
+const CFG_KEY='fscan-cmd-toolcfg';
+function loadCfg(){
+  let c=null;
+  try{c=JSON.parse(localStorage.getItem(CFG_KEY));}catch(e){}
+  if(!c||typeof c!=='object')c={};
+  if(!c.dir)c.dir='';
+  TOOLS.fscan.exe=c.fscan||'fscan.exe';
+  TOOLS.pscan.exe=c.pscan||'pscan.exe';
+  TOOLS.web.exe=c.web||'fscan-web.exe';
+}
+function saveCfg(){
+  const c={dir:document.getElementById('cfg-dir').value.trim()};
+  c.fscan=document.getElementById('cfg-fscan').value.trim()||TOOLS.fscan.exe;
+  c.pscan=document.getElementById('cfg-pscan').value.trim()||TOOLS.pscan.exe;
+  c.web=document.getElementById('cfg-web').value.trim()||TOOLS.web.exe;
+  localStorage.setItem(CFG_KEY,JSON.stringify(c));
+  loadCfg();updateCmd();
+  alert('✅ 工具路径已更新！');
+}
+function getCfgDir(){try{const c=JSON.parse(localStorage.getItem(CFG_KEY));return c?c.dir||'':'';}catch(e){return'';}}
+loadCfg();
+let vals={};
+let presetName=null;
+let mainScrollTop=0;
+
+function init(){
+  PARAMS.forEach(p=>{vals[p.id]=p.d!==undefined?p.d:'';});
+  loadPresetList();loadHistoryList();renderAll();
+}
+document.addEventListener('DOMContentLoaded',init);
+
+// ═══════════════════════════════════════════════════════
+//  HELPERS
+// ═══════════════════════════════════════════════════════
+
+const isWeb=()=>tool==='web';
+const aParams=()=>PARAMS.filter(p=>isWeb()?p.wo:!p.wo);
+function flag(p){if(isWeb())return null;return tool==='pscan'?p.ps:p.fs;}
+function vis(p){
+  if(isWeb()&&!p.wo)return false;
+  if(!isWeb()&&p.wo)return false;
+  if(vals['aliveOnly']==='true'&&!['target','hostFile','excludeHosts','excludeHostFile','aliveOnly','skipPing','skipTCP','skipSubnet','icmpRate','outputFile','outputFormat','lang','debug','perf','log','silent','noColor','noProgress','noSave','excludeHosts','excludeHostFile'].includes(p.id))return false;
+  if(vals['noBrute']==='true'&&p.cat==='cred')return false;
+  if(vals['noPOC']==='true'&&['pocName','pocPath','pocConcurrency','fullPOC','dns'].includes(p.id))return false;
+  if(p.dep&&p.dep.startsWith('!')&&vals[p.dep.slice(1)]==='true')return false;
+  if(tool==='pscan'&&p.ps===null&&p.fs!==null&&!p.wo)return false;
+  return true;
+}
+const esc=s=>s?String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'):'';
+
+// ── Smart IP: convert a single IP into CIDR A/B/C segment ──
+function smartCIDR(mask){
+  const fid='f-target';const el=document.getElementById(fid);
+  if(!el)return;let v=el.value.trim();if(!v)return;
+  // Try to extract the first IPv4 address from the input
+  const m=v.match(/(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/);
+  if(!m)return;
+  const a=parseInt(m[1]),b=parseInt(m[2]),c=parseInt(m[3]);
+  let cidr='';
+  if(mask===24)cidr=`${a}.${b}.${c}.0/24`;
+  else if(mask===16)cidr=`${a}.${b}.0.0/16`;
+  else if(mask===8)cidr=`${a}.0.0.0/8`;
+  // If input was comma-separated multi-target, replace only the first CIDR match
+  if(v.includes(',')){
+    // Replace the matched IP (first one only) with CIDR
+    const idx=v.indexOf(m[0]);
+    const before=v.substring(0,idx);
+    const after=v.substring(idx+m[0].length);
+    // Remove any existing /xx suffix on the matched IP
+    const cleanAfter=after.replace(/^\/\d+/,'');
+    el.value=before+cidr+cleanAfter;
+  }else{
+    el.value=cidr;
+  }
+  onCh('target',el.value);
+}
+
+// ═══════════════════════════════════════════════════════
+//  RENDER
+// ═══════════════════════════════════════════════════════
+
+function renderAll(preserveScroll){
+  const m=document.getElementById('main');
+  if(preserveScroll)mainScrollTop=m.scrollTop;
+  renderSidebar();renderMain();updateCmd();
+  if(preserveScroll){requestAnimationFrame(()=>{m.scrollTop=mainScrollTop;});}
+}
+
+function renderSidebar(){
+  document.getElementById('snav').innerHTML=CATS.map(c=>
+    `<a href="#" onclick="jump('panel-${c.id}');return false"><span class="n">${c.ico}</span> ${c.label}</a>`
+  ).join('');
+}
+
+function jump(id){
+  const el=document.getElementById(id);
+  if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function renderMain(){
+  const m=document.getElementById('main');
+
+  if(isWeb()){
+    m.innerHTML=`
+      <div class="panel" id="panel-webonly">
+        <div class="panel-header"><h3>🌐 fscan-web 启动参数</h3><span class="arr open">▶</span></div>
+        <div class="panel-body open">${renderF(PARAMS.find(p=>p.id==='webPort'))}${renderF(PARAMS.find(p=>p.id==='lang'))}</div>
+      </div>
+      <div class="web-splash">
+        <div class="big">🚀</div>
+        <h2>启动后请在浏览器中访问</h2>
+        <div class="url-preview" id="wurl">http://127.0.0.1:${vals['webPort']||'10240'}</div>
+        <p class="sub">所有扫描配置都在浏览器界面中完成，无需记忆命令行参数</p>
+      </div>`;
+    return;
+  }
+
+  m.innerHTML=CATS.map(cat=>{
+    const cps=aParams().filter(p=>p.cat===cat.id).sort((a,b)=>a.o-b.o);
+    const vv=cps.filter(p=>vis(p));
+    return `
+    <div class="panel" id="panel-${cat.id}">
+      <div class="panel-header" onclick="tglPanel(this)">
+        <h3>${cat.ico} ${cat.label}<span class="count">${vv.length}</span></h3>
+        <span class="arr ${vv.length?'open':''}">▶</span>
+      </div>
+      <div class="panel-body ${vv.length?'open':''}" id="body-${cat.id}">
+        ${cps.map(p=>renderF(p)).join('')}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderF(p){
+  const hid=!vis(p)?'style="display:none"':'';
+  const f=flag(p);const fid='f-'+p.id;
+  const ft=f?`<span class="ftag">${f}</span>`:'';
+  const fn=(tool==='pscan'&&p.ps===null&&p.fs!==null&&!p.wo)?'<span class="fnone">pscan无</span>':'';
+
+  if(p.t==='toggle'){
+    return `
+    <div class="field" data-p="${p.id}" ${hid}>
+      <div class="tg-row">
+        <div class="tg-left"></div>
+        <div class="tg-mid">
+          <label class="toggle">
+            <input type="checkbox" id="${fid}" ${vals[p.id]==='true'?'checked':''} onchange="onTg('${p.id}',this.checked)">
+            <span class="tk"></span>
+          </label>
+          <label class="tg-label" for="${fid}">${p.label}</label>
+          ${ft}${fn}
+        </div>
+      </div>
+      <div class="tg-desc">${p.desc}</div>
+    </div>`;
+  }
+
+  let inp='';const v=vals[p.id]||'';
+  switch(p.t){
+    case'select':
+      inp=`<select id="${fid}" onchange="onCh('${p.id}',this.value)" style="flex:1">${(p.opts||[]).map(o=>`<option value="${o}" ${v===o?'selected':''}>${o}</option>`).join('')}</select>`;
+      break;
+    case'number':
+      inp=`<input type="number" id="${fid}" value="${esc(v)}" oninput="onCh('${p.id}',this.value)" placeholder="${p.d||''}" class="${p.w==='sm'?'w-xs':'w-sm'}">`;
+      break;
+    case'file':
+      const fn2=v?v.split('\\').pop().split('/').pop():'';
+      inp=`<input type="text" id="${fid}" value="${esc(v)}" oninput="onCh('${p.id}',this.value)" placeholder="输入路径或点击浏览…" style="flex:1"><button class="f-btn" onclick="pickF('${p.id}')">📁 浏览</button>${fn2?`<span class="f-fname" title="${esc(v)}">📎 ${esc(fn2)}</span>`:''}`;
+      break;
+    case'combo':
+      inp=`<div class="cwrap" style="flex:1"><input type="text" id="${fid}" value="${esc(v)}" oninput="onCh('${p.id}',this.value)" onfocus="shC('${p.id}')" onblur="setTimeout(()=>hiC('${p.id}'),200)" autocomplete="off" placeholder="输入或选择…"><div class="cdrop" id="cd-${p.id}">${(p.opts||[]).map(o=>`<div onmousedown="onCh('${p.id}','${o}');document.getElementById('${fid}').value='${o}'">${o}</div>`).join('')}</div></div>`;
+      break;
+    default:
+      // Smart IP buttons for target field
+      const extra=p.smartip?`<div class="smart-ip"><button onclick="smartCIDR(24)" title="输入任意IP，自动转为 C段 CIDR (如 192.168.1.1 → 192.168.1.0/24)">📐 C段</button><button onclick="smartCIDR(16)" title="输入任意IP，自动转为 B段 CIDR (如 192.168.1.1 → 192.168.0.0/16)">📐 B段</button><button onclick="smartCIDR(8)" title="输入任意IP，自动转为 A段 CIDR (如 192.168.1.1 → 192.0.0.0/8)">📐 A段</button></div>`:'';
+      inp=`<input type="text" id="${fid}" value="${esc(v)}" oninput="onCh('${p.id}',this.value)" placeholder="${(p.desc||'').replace(/<[^>]*>/g,'').substring(0,80)}" style="flex:1">${extra}`;
+  }
+
+  let chips='';
+  if(p.chips){
+    chips=`<div class="f-chips">${p.chips.map(c=>`<span class="f-chip" title="点击填入：${esc(c.v)}" onclick="document.getElementById('${fid}').value='${esc(c.v)}';onCh('${p.id}','${esc(c.v)}')">${c.l}</span>`).join('')}</div>`;
+  }
+
+  return `
+  <div class="field" data-p="${p.id}" ${hid}>
+    <div class="f-row">
+      <div class="f-label">${p.label} ${ft} ${fn}</div>
+      <div class="f-ctl">${inp}</div>
+    </div>
+    ${chips}
+    <div class="f-desc">${p.desc}</div>
+  </div>`;
+}
+
+function tglPanel(h){
+  const b=h.nextElementSibling,a=h.querySelector('.arr');
+  b.classList.toggle('open');a.classList.toggle('open');
+}
+
+// ═══════════════════════════════════════════════════════
+//  EVENTS
+// ═══════════════════════════════════════════════════════
+
+function onToolSwitch(){
+  tool=document.getElementById('tsel').value;
+  loadCfg(); // reload exe names for the new tool before rendering
+  renderAll();
+}
+function onCh(id,v){
+  vals[id]=v;
+  if(id==='webPort'){const e=document.getElementById('wurl');if(e)e.textContent=`http://127.0.0.1:${v||'10240'}`;}
+  updateCmd();
+}
+function onTg(id,chk){
+  vals[id]=chk?'true':'';
+  if(['aliveOnly','noBrute','noPOC'].includes(id))renderAll(true);else updateCmd();
+}
+function shC(id){const d=document.getElementById('cd-'+id);if(d)d.classList.add('show');}
+function hiC(id){const d=document.getElementById('cd-'+id);if(d)d.classList.remove('show');}
+function pickF(id){
+  const i=document.createElement('input');i.type='file';
+  i.onchange=()=>{if(i.files[0]){vals[id]=i.files[0].name;renderAll(true);updateCmd();}};
+  i.click();
+}
+
+// ═══════════════════════════════════════════════════════
+//  COMMAND GENERATOR
+// ═══════════════════════════════════════════════════════
+
+function genCmd(){
+  const dir=getCfgDir();
+  if(isWeb()){
+    const p=vals['webPort']||'10240',l=vals['lang']||'zh';
+    let c=(dir?dir.replace(/\\+$/,'')+'\\':'')+(TOOLS.web&&TOOLS.web.exe||'fscan-web.exe');
+    if(p!=='10240')c+=` -port ${p}`;
+    if(l!=='zh')c+=` -lang ${l}`;
+    return c;
+  }
+  const parts=[(dir?dir.replace(/\\+$/,'')+'\\':'')+(TOOLS[tool]&&TOOLS[tool].exe||'fscan.exe')];
+  const ord=CATS.map(c=>aParams().filter(p=>p.cat===c.id&&vis(p))).flat();
+  for(const p of ord){
+    const f=flag(p);if(!f)continue;
+    if(p.t==='toggle'){if(vals[p.id]==='true')parts.push(f);}
+    else{const v=vals[p.id];if(!v&&v!=='0')continue;
+      if(p.d!==undefined&&String(v)===String(p.d)&&p.t!=='text')continue;
+      parts.push(`${f} ${v}`);}
+  }
+  return parts.join(' ');
+}
+
+function updateCmd(){
+  const c=genCmd();const b=document.getElementById('cmd-box');
+  const exe=(getCfgDir()?getCfgDir().replace(/\\+$/,'')+'\\':'')+(TOOLS[tool]&&TOOLS[tool].exe||'fscan.exe');
+  let h=c;
+  // escape backslashes in exe for regex
+  const exeEsc=exe.replace(/\\/g,'\\\\');
+  h=h.replace(new RegExp(exeEsc.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')),`<span class="exe">${esc(exe)}</span>`);
+  h=h.replace(/(\s)(-[a-zA-Z][\w-]*)/g,'$1<span class="flag">$2</span>');
+  b.innerHTML=h||'<span class="empty">在上方配置参数，命令将实时显示在这里…</span>';
+}
+
+function copyCmd(){
+  const c=genCmd();
+  if(!navigator.clipboard){prompt('复制以下命令 (Ctrl+C)：',c);return;}
+  navigator.clipboard.writeText(c).then(()=>{
+    const t=document.getElementById('toast');t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),2200);
+    addHistory(c);
+  }).catch(()=>{prompt('复制以下命令 (Ctrl+C)：',c);});
+}
+
+
+function showRun(){
+  const c=genCmd(),tl=TOOLS[tool].name,dir=getCfgDir();
+  const ov=document.createElement('div');ov.className='m-overlay';
+  const cdLine=dir?'cd '+esc(dir):'(请在工具所在目录打开终端，或在右上角 ⚙️ 设置中配置目录)';
+  ov.innerHTML=`
+    <div class="m-box">
+      <h3>▶ 运行 ${tl}</h3>
+      <p style="color:var(--text2);margin-bottom:18px;font-size:0.88rem;line-height:1.65">浏览器无法直接执行本地程序。请<strong>打开 PowerShell 或 CMD</strong>，按以下步骤操作：</p>
+      <p class="step">① 切换到工具所在目录</p>
+      <input readonly value="${esc(cdLine)}" onclick="this.select()">
+      <p class="step">② 粘贴以下命令运行</p>
+      <input readonly value="${esc(c)}" onclick="this.select()" style="font-size:0.85rem">
+      <p class="m-warn">⚠ 请确保已获得合法授权后再运行扫描。禁止对未授权目标进行扫描。</p>
+      <div class="m-acts">
+        <button onclick="this.closest('.m-overlay').remove()">关闭</button>
+        <button class="primary" onclick="navigator.clipboard.writeText(this.closest('.m-box').querySelectorAll('input')[1].value);this.closest('.m-overlay').remove()">📋 复制命令</button>
+      </div>
+    </div>`;
+  document.body.appendChild(ov);
+  ov.addEventListener('click',e=>{if(e.target===ov)ov.remove();});
+}
+
+// ═══════════════════════════════════════════════════════
+//  TOOL CONFIG MODAL
+// ═══════════════════════════════════════════════════════
+
+function showCfg(){
+  const c=JSON.parse(localStorage.getItem(CFG_KEY)||'{}');
+  const ov=document.createElement('div');ov.className='m-overlay';
+  ov.innerHTML=`
+    <div class="m-box" style="max-width:560px">
+      <h3>⚙️ 工具路径设置</h3>
+      <p style="color:var(--text2);margin-bottom:16px;font-size:0.85rem;line-height:1.6">配置三个可执行文件的<strong>名字</strong>和<strong>所在目录</strong>。<br>可以只填文件名，也可以填绝对路径。所有设置自动保存到浏览器本地存储。</p>
+
+      <p class="step">① 工具所在目录（留空 = 当前目录）</p>
+      <input type="text" id="cfg-dir" value="${esc(c.dir||'')}" placeholder="例如 D:\\tools 或留空" style="margin-bottom:16px">
+
+      <p class="step">② 各工具的可执行文件名</p>
+      <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
+        <span style="width:100px;font-size:0.82rem;color:var(--text2);text-align:right;flex-shrink:0">fscan</span>
+        <input type="text" id="cfg-fscan" value="${esc(c.fscan||'fscan.exe')}" placeholder="fscan.exe">
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
+        <span style="width:100px;font-size:0.82rem;color:var(--text2);text-align:right;flex-shrink:0">pscan</span>
+        <input type="text" id="cfg-pscan" value="${esc(c.pscan||'pscan.exe')}" placeholder="pscan.exe">
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;margin-bottom:12px">
+        <span style="width:100px;font-size:0.82rem;color:var(--text2);text-align:right;flex-shrink:0">fscan-web</span>
+        <input type="text" id="cfg-web" value="${esc(c.web||'fscan-web.exe')}" placeholder="fscan-web.exe">
+      </div>
+
+      <p style="color:var(--text3);font-size:0.76rem;margin-bottom:16px;line-height:1.6">💡 如果工具和本 HTML 在同一个目录，只填文件名即可 (如 <code>fscan.exe</code>)。<br>如果在其他目录，可以填完整路径 (如 <code>D:\\tools\\fscan.exe</code>) 或先配好①的目录再填文件名。</p>
+
+      <div class="m-acts">
+        <button onclick="this.closest('.m-overlay').remove()">取消</button>
+        <button class="primary" onclick="saveCfg();this.closest('.m-overlay').remove()">💾 保存并应用</button>
+      </div>
+    </div>`;
+  document.body.appendChild(ov);
+  ov.addEventListener('click',e=>{if(e.target===ov)ov.remove();});
+}
+
+//  HISTORY
+// ═══════════════════════════════════════════════════════
+
+function addHistory(cmd){
+  let h=JSON.parse(localStorage.getItem('fscan-cmd-history')||'[]');
+  h.unshift({cmd,tool,time:new Date().toLocaleString()});
+  if(h.length>20)h=h.slice(0,20);
+  localStorage.setItem('fscan-cmd-history',JSON.stringify(h));loadHistoryList();
+}
+function loadHistoryList(){
+  const h=JSON.parse(localStorage.getItem('fscan-cmd-history')||'[]');
+  const s=document.getElementById('hsel');
+  s.innerHTML='<option value="">🕐 历史命令 (最近20条)</option>'+h.map((e,i)=>`<option value="${i}" title="${esc(e.cmd)}">${e.time} [${e.tool}] ${esc(e.cmd.substring(0,70))}${e.cmd.length>70?'…':''}</option>`).join('');
+}
+function loadHistoryCmd(idx){
+  if(!idx&&idx!=='0')return;
+  const h=JSON.parse(localStorage.getItem('fscan-cmd-history')||'[]');
+  const e=h[parseInt(idx)];if(!e)return;
+  if(e.tool!==tool){tool=e.tool;document.getElementById('tsel').value=tool;renderAll();}
+  document.getElementById('cmd-box').textContent=e.cmd;
+}
+
+// ═══════════════════════════════════════════════════════
+//  PRESETS
+// ═══════════════════════════════════════════════════════
+
+function loadPresetList(){
+  const ps=JSON.parse(localStorage.getItem('fscan-cmd-presets')||'{}');
+  const s=document.getElementById('psel');
+  s.innerHTML='<option value="">📂 加载方案…</option>'+Object.keys(ps).map(n=>`<option value="${esc(n)}">${esc(n)}</option>`).join('');
+}
+function loadPreset(name){
+  if(!name)return;
+  const ps=JSON.parse(localStorage.getItem('fscan-cmd-presets')||'{}');
+  const d=ps[name];if(!d)return;
+  tool=d.tool||'fscan';document.getElementById('tsel').value=tool;vals=d.values||{};
+  PARAMS.forEach(p=>{if(!(p.id in vals))vals[p.id]=p.d!==undefined?p.d:'';});
+  presetName=name;renderAll();
+}
+function showSavePreset(){
+  const n=prompt('配置方案名称（如：日常C段扫描、全网侦察、SSH专项爆破）：',presetName||'');
+  if(!n||!n.trim())return;
+  const ps=JSON.parse(localStorage.getItem('fscan-cmd-presets')||'{}');
+  ps[n.trim()]={tool,values:{...vals},saved:new Date().toLocaleString()};
+  localStorage.setItem('fscan-cmd-presets',JSON.stringify(ps));
+  presetName=n.trim();loadPresetList();
+  alert(`✅ 配置方案 "${n.trim()}" 已保存`);
+}
+</script>
+</body>
+</html>
